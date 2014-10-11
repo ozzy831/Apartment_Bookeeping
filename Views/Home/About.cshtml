@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Apartment_Bookeeping.Models.Tenant>
+
+@{
+    ViewBag.Title = "About";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<article>
+    <p>
+        Use this area to provide additional information.
+    </p>
+
+    <p>
+        Use this area to provide additional information.
+    </p>
+
+    <p>
+        Use this area to provide additional information.
+    </p>
+</article>
+
+<aside>
+    <h3>Aside Title</h3>
+    <p>
+        Use this area to provide additional information.
+    </p>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+
+    <br />
+    <br />
+
+    @foreach (var item in Model)
+    {
+        @Html.DisplayFor(modelItem => item.FirstName)
+        <br />
+        @Html.DisplayFor(modelItem => item.LastName)
+        <br />
+        foreach (var i in item.RentPayments)
+        {
+            @Html.DisplayFor(modelItem => i.Date)
+            <br />
+            @Html.DisplayFor(modelItem => i.Receipt)
+            <br />
+            @Html.DisplayFor(modelItem => i.AmountPaid)
+            <br />
+        }
+        /*
+            @Html.DisplayFor(modelItem => item.Tenant.FirstName)
+            <br />
+            @Html.DisplayFor(modelItem => item.Tenant.LastName)
+            <br />
+        foreach (var i in item.Tenant.RentPayments)
+        {
+            @Html.DisplayFor(modelItem => i.Date)
+            <br />
+            @Html.DisplayFor(modelItem => i.Receipt)
+            <br />
+            @Html.DisplayFor(modelItem => i.AmountPaid)
+            <br />
+        }
+            @Html.DisplayFor(modelItem => item.Apartment.Name)
+            <br />
+            @Html.DisplayFor(modelItem => item.AptNum)
+        <br />*/
+    }
+</aside>

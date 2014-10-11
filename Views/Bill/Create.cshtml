@@ -1,0 +1,84 @@
+﻿@model Apartment_Bookeeping.Models.Bill
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Bill</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AccountNum)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AccountNum)
+            @Html.ValidationMessageFor(model => model.AccountNum)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StatementDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StatementDate)
+            @Html.ValidationMessageFor(model => model.StatementDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PaidDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PaidDate)
+            @Html.ValidationMessageFor(model => model.PaidDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AmountOwed)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AmountOwed)
+            @Html.ValidationMessageFor(model => model.AmountOwed)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AmountPaid)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AmountPaid)
+            @Html.ValidationMessageFor(model => model.AmountPaid)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ApartmentID, "Apartment")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ApartmentID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ApartmentID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BillingCompanyID, "BillingCompany")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("BillingCompanyID", String.Empty)
+            @Html.ValidationMessageFor(model => model.BillingCompanyID)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

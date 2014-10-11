@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Apartment_Bookeeping.Models.Bill>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Bill</legend>
+
+
+    <table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatementDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaidDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmountOwed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmountPaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apartment.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <th>
+            @Html.DisplayFor(model => item.AccountNum)
+        </th>
+        <th>
+            @Html.DisplayFor(model => item.StatementDate)
+        </th>
+        <th>
+            @Html.DisplayFor(model => item.PaidDate)
+        </th>
+        <th>
+            @Html.DisplayFor(model => item.AmountOwed)
+        </th>
+        <th>
+            @Html.DisplayFor(model => item.AmountPaid)
+        </th>
+        <th>
+            @Html.DisplayFor(model => item.Apartment.Name)
+        </th>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BillID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BillID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BillID })
+        </td>
+    </tr>
+}
+
+</table>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaidDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaidDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AmountOwed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AmountOwed)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AmountPaid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AmountPaid)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Apartment.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Apartment.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BillingCompany.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BillingCompany.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.BillID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

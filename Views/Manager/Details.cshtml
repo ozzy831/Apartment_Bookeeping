@@ -1,0 +1,93 @@
+﻿@model Apartment_Bookeeping.Models.Manager
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Manager</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location.City)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location.City)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location.State)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location.State)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location.ZipCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location.ZipCode)
+    </div>
+    <!--
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SSN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SSN)
+    </div>
+    -->
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DOB)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DOB)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhoneNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneNumber)
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <div class="display-label">
+        Apartment Managing
+    </div>
+    
+    @foreach(var item in Model.Apartments)
+    {
+    <div class="display-field">
+        @item.Name
+    </div>
+    }
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PersonID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

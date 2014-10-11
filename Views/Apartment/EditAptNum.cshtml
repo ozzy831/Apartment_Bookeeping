@@ -1,0 +1,58 @@
+﻿@model Apartment_Bookeeping.Models.ApartmentNum
+@{
+    ViewBag.Title = "EditAptNum";
+}
+
+<h2>Edit Apartment Number of @Html.DisplayFor(model => model.Apartment.Name)</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Apartment</legend>
+
+        @Html.HiddenFor(model => model.ANID)
+        @Html.HiddenFor(model => model.ApartmentID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AptNum)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AptNum)
+            @Html.ValidationMessageFor(model => model.AptNum)
+            @Html.ValidationMessage("AptExists")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumBaths)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumBaths)
+            @Html.ValidationMessageFor(model => model.NumBaths)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumRooms)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumRooms)
+            @Html.ValidationMessageFor(model => model.NumRooms)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RentPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RentPrice)
+            @Html.ValidationMessageFor(model => model.RentPrice)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+
+        </fieldset>
+    <!--goes back to the details page of affected apartment complex with the use of the AptID viewbag-->
+    @Html.ActionLink("Back to Apartment Details", "Details", new { id = Model.ApartmentID })
+}

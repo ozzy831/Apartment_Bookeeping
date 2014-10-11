@@ -1,0 +1,52 @@
+﻿@model Apartment_Bookeeping.Models.ApartmentNum
+
+@{
+    ViewBag.Title = "Stuff";
+}
+
+<h2>Stuff</h2>
+
+<fieldset>
+    <legend>ApartmentNum</legend>
+
+    
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AptNum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AptNum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumRooms)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumRooms)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumBaths)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumBaths)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RentPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RentPrice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Apartment.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Apartment.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditAptNum", new {  id=Model.ANID  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,47 @@
+﻿@model Apartment_Bookeeping.Models.Expenditure
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3 style="color:red">Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Expenditure</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalCost)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalCost)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Store)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Store)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Receipt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Receipt)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,70 @@
+﻿@model Apartment_Bookeeping.Models.Apartment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details For @Html.DisplayFor(model => model.Name)</h2>
+
+<fieldset>
+    <legend>Apartment</legend>
+
+    <div class="display-label">
+        <!--goes to create apartment number create page-->
+         @Html.ActionLink("Create Apartment Number", "CreateAptNum", new { id=Model.ApartmentID })
+    </div>
+
+    <table>
+        <tr>
+            <th onmouseover="this.style.background='gray';" onmouseout="this.style.background='white';">
+                Apartment Number
+            </th>
+            <th onmouseover="this.style.background='gray';" onmouseout="this.style.background='white';">
+                Number of Bedrooms
+            </th>
+            <th onmouseover="this.style.background='gray';" onmouseout="this.style.background='white';">
+                Number of Bathrooms
+            </th>
+            <th onmouseover="this.style.background='gray';" onmouseout="this.style.background='white';">
+                Rent Price
+            </th>
+            <th onmouseover="this.style.background='gray';" onmouseout="this.style.background='white';">
+                Current Tenant
+            </th>
+            <th>
+
+            </th>
+        </tr>
+
+        @foreach (var item in Model.ApartmentNums)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.AptNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.NumRooms)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.NumBaths)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.RentPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Tenant.FullName)
+                </td>
+                <td>
+                    <!--goes to either edit page or delete page which will edit or delete an apartment number from complex-->
+                    @Html.ActionLink("Edit","EditAptNum", new {id = item.ANID}) | 
+                    @Html.ActionLink("Delete", "DeleteAptNum", new {id = item.ANID})
+                </td>
+            </tr>
+        }
+
+        </table>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ApartmentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

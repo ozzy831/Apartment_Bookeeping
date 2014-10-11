@@ -1,0 +1,35 @@
+﻿@model Apartment_Bookeeping.Models.ExpDetail
+@{
+    ViewBag.Title = "Delete Item";
+}
+
+<h2>Delete Item</h2>
+
+<div>
+    @Html.DisplayNameFor(model => model.Item)
+</div>
+<div>
+    @Html.DisplayFor(model => model.Item)
+</div>
+
+<div>
+    @Html.DisplayNameFor(model => model.Quantity)
+</div>
+<div>
+    @Html.DisplayFor(model => model.Quantity)
+</div>
+
+<div>
+    @Html.DisplayNameFor(model => model.Cost)
+</div>
+<div>
+    @Html.DisplayFor(model => model.Cost)
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to Details", "Details", new { id = Model.ExpenditureID })
+    </p>
+}

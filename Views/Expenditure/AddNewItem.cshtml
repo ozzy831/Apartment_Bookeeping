@@ -1,0 +1,48 @@
+﻿@model Apartment_Bookeeping.Models.ExpDetail
+@{
+    ViewBag.Title = "Add New Item";
+}
+
+<h2>Add New Item</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Add New Item</legend>
+
+        @Html.HiddenFor(model => model.ExpenditureID, new { @Value = ViewBag.ExpID })
+
+        <div>
+            @Html.LabelFor(model => model.Item)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Item)
+            @Html.ValidationMessageFor(model => model.Item)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Quantity)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Quantity)
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Cost)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Cost)
+            @Html.ValidationMessageFor(model => model.Cost)
+        </div>
+
+        <p>
+            <input type="submit" value="Submit" />
+        </p>
+
+        </fieldset>
+    
+    @Html.ActionLink("Back to Details", "Details", new { id = ViewBag.ExpID })
+}

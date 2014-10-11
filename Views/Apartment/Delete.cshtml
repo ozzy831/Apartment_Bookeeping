@@ -1,0 +1,61 @@
+﻿@model Apartment_Bookeeping.Models.Apartment
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Apartment Complex: @Html.DisplayFor(model => model.Name)</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Apartment</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location.City)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location.City)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location.State)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location.State)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location.ZipCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location.ZipCode)
+    </div>
+
+    <div class="display-label">
+         Manager
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Manager.FullName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

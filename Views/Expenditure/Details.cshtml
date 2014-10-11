@@ -1,0 +1,75 @@
+﻿@model Apartment_Bookeeping.Models.Expenditure
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Expenditure</legend>
+
+    <br />
+    @Html.ActionLink("Add New Item", "AddNewItem", new { id = Model.ExpenditureID })
+    <br />
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalCost)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalCost)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Store)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Store)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Receipt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Receipt)
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th></th>
+        </tr>
+    @foreach (var item in Model.ExpDetails)
+    {
+        <tr>
+            <td>@item.Item</td>
+            <td>@item.Quantity</td>
+            <td>@item.Cost</td>
+            <th>
+                @Html.ActionLink("Edit", "EditExp", new { id=item.ExpDetailID }) | @Html.ActionLink("Delete", "DeleteExp", new { id=item.ExpDetailID })
+            </th>
+        </tr>
+    }
+    </table>
+    ======================
+    <br />
+    Total Cost = $@Model.TotalCost
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ExpenditureID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
